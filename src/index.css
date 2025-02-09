@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: bold;
+  }
+  h1 {
+    @apply text-5xl;
+  }
+  h2 {
+    @apply text-4xl;
+  }
+  h3 {
+    @apply text-3xl;
+  }
+  h4 {
+    @apply text-2xl;
+  }
+  h5 {
+    @apply text-xl;
+  }
+  h6 {
+    @apply text-lg;
+  }
+}
+
+a.active {
+  color: theme(colors[green].500);
+}
+.row {
+  @apply flex flex-wrap px-4 py-8 items-center;
+}
+.container {
+  width: 85%;
+}
+
+/* .footer {
+  height: 60vh;
+} */
+
+.loader {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  border-radius: 50%;
+  color: #04ef47;
+  animation: fill 1s ease-in infinite alternate;
+}
+.loader::before , .loader::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  left: 48px;
+  top: 0;
+  animation: fill 0.9s ease-in infinite alternate;
+}
+
+.loader::after {
+  left: auto;
+  right: 48px;
+  animation-duration: 1.1s;
+}
+
+@keyframes fill {
+ 0% {  box-shadow: 0 0 0 2px inset }
+ 100%{ box-shadow: 0 0 0 10px inset }
+}
+  
+.loader1 {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 7px solid #000000;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader1::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-bottom: 7px solid #56f600;
+  border-left: 4px solid transparent;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader2 {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  border-radius: 50%;
+  color: #6aff00;
+  animation: fill 1s ease-in infinite alternate;
+}
+.loader2::before , .loader2::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  left: 48px;
+  top: 0;
+  animation: fill 0.9s ease-in infinite alternate;
+}
+
+.loader2::after {
+  left: auto;
+  right: 48px;
+  animation-duration: 1.1s;
+}
+
+@keyframes fill {
+ 0% {  box-shadow: 0 0 0 2px inset }
+ 100%{ box-shadow: 0 0 0 10px inset }
+}
+  
+.navbar,.check{
+  z-index: 9;
+}
+
+
+/* ----------------------------------- start loading */
+
+/* -----------------------------------end loading */

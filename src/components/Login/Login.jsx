@@ -4,8 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { UserContext } from "../Context/UserContext";
-import { FaSpider, FaSpinner } from "react-icons/fa";
-import Loader from "../Loader/Loader";
+
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false)

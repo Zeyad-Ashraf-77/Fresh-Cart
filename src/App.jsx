@@ -105,6 +105,7 @@ function App() {
           ),
         },
         { path: "login", element: <Login /> },
+        { path: "Fresh-Cart", element: <Login /> },
         { path: "register", element: <Register /> },
         { path: "*", element: <Notfound /> },
       ],

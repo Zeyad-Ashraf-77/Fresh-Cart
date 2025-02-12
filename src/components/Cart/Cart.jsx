@@ -18,6 +18,7 @@ export default function Cart() {
   const [products, setProducts] = useState([]);
   const [totalCartPrice, setTotalCartPrice] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoading1, setisLoading] = useState(false);
   const [cartDetails, setCartDetails] = useState(null);
   const [openForm, setOpenForm] = useState(false)
 
@@ -34,8 +35,10 @@ export default function Cart() {
     // console.log(res.data.data.products);
   }
   async function handleRemoveItemCart(pid) {
+    setisLoading(true)
     const res = await removeItemCart(pid);
     console.log(res);
+    setisLoading(false)
     setCartId(res.data.cartId);
     setNumOfCartItems(res.data.numOfCartItems);
     setProducts(res.data.data.products);
@@ -43,8 +46,12 @@ export default function Cart() {
     setCartDetails(res.data.data);
   }
   async function handleUpdateProductQu(pid, count) {
+    setisLoading(true)
+
     const res = await updateProductQu(pid, count);
     console.log(res);
+    setisLoading(false)
+
     setCartId(res.data.cartId);
     setNumOfCartItems(res.data.numOfCartItems);
     setProducts(res.data.data.products);
@@ -52,6 +59,7 @@ export default function Cart() {
     setCartDetails(res.data.data);
   }
   async function handleClearCart() {
+    setisLoading(true)
     const res = await clearCart();
     // console.log(res);
     setCartId(null);
@@ -59,6 +67,8 @@ export default function Cart() {
     setProducts(null);
     setTotalCartPrice(null);
     setCartDetails(null);
+    setisLoading(false)
+
   }
 
   async function handleCheckOutSession(value) {
@@ -94,7 +104,16 @@ let  validationSchema = Yup.object().shape({
     </div>
     
   }
-
+  if (isLoading1) {
+    return<>
+    <div className=" min-h-[500px]">
+    <div className=" fixed inset-0 flex justify-center min-h-96 bg-white/80 items-center">
+    <div className="loader1"></div>
+    </div>
+  </div>
+    
+    </>
+  }
   return (
     <>
       {numOfCartItems == 0 && <div className="flex justify-center items-center flex-col  my-10 bg-slate-900 rounded-full py-16">

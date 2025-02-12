@@ -25,6 +25,8 @@ export default function WishList() {
 
   async function handleRemoveProductInWishlist(pid) {
     try {
+    setIsLoading(true);
+
       await removeProductInWishlist(pid);
       setProductWishList((prevList) => prevList.filter((p) => p.id !== pid));
        toast.error('Remove from Wish List',{
@@ -37,9 +39,12 @@ export default function WishList() {
         }
        })
     } catch (error) {
+
       console.error("Error removing product:", error);
       toast.error("Failed to remove product.");
     }
+    setIsLoading(false);
+
   }
 
   async function handleAddToCart(id) {
